@@ -1,8 +1,17 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import APPService from './API';
 
 const App: React.FC = () => {
+  React.useEffect(()=>{
+    APPService.todos.get(1)
+    // setData()
+    // if(!!data){
+    //   console.log(data)
+    // }
+  },[])
+
   return (
     <div className="App">
       <header className="App-header">
