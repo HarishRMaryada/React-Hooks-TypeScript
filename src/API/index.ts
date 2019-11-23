@@ -4,8 +4,6 @@ const Endpoints = constants.endpoints;
 const ErrorMessages = constants.errors;
 const HostName = constants.host
 
-
-
 let API: any = {};
 let requestCounter: number = 0;
 let USER_AGENT: string;
