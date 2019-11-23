@@ -1,34 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import APPService from './API';
+import { Provider } from "react-redux";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { MuiThemeProvider } from "@material-ui/core/styles";
+
+//styles
+import {theme} from "./Common/Styles"
+
+//redux
+import store from "./Store";
+
+//components
+// import PrivateRoute from "./libs/PrivateRoute";
+import Login from "./Component/Login";
 
 const App: React.FC = () => {
-  React.useEffect(()=>{
-    APPService.todos.get(1)
-    // setData()
-    // if(!!data){
-    //   console.log(data)
-    // }
-  },[])
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MuiThemeProvider theme={theme}>
+    <Provider store={store}>
+      <div className="App">
+        <BrowserRouter>
+          <div>
+            <Switch>
+              <Route exact={true} path={"/"} component={Login} />
+              <Route exact={true} path={"/signup"} component={Login} />
+              {/* <PrivateRoute path={"/"} component={Layout} /> */}
+            </Switch>
+          </div>
+        </BrowserRouter>
+      </div>
+    </Provider>
+    </MuiThemeProvider>
   );
 }
 

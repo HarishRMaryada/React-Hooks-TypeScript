@@ -1,5 +1,5 @@
 export default{
-    host:"https://",
+    host:"http://widgetizer.jcolemorrison.com/",
     endpoints : new Map([
        ["todos","/todos"],
        ["users","/users"],

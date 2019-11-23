@@ -4,6 +4,7 @@ const Endpoints = constants.endpoints;
 const ErrorMessages = constants.errors;
 const HostName = constants.host
 
+
 let API: any = {};
 let requestCounter: number = 0;
 let USER_AGENT: string;
@@ -189,7 +190,12 @@ const fetcher = (fetchMethod: string, fetchEndpoint: string, fetchParams?: any, 
 
 Endpoints.forEach((endpoint: string, key: string) => {
     let methodObject: any;
-    methodObject = { [key]: { get: (params?: any, payload?: any) => (fetcher("GET", endpoint, params, payload)) } }
+    methodObject = {
+        [key]: {
+            get: (params?: any, payload?: any) => (fetcher("GET", endpoint, params, payload)),
+            post: (params?: any, payload?: any) => fetcher("POST", endpoint, params, payload)
+        }
+    }
     API = { ...methodObject, ...API }
 })
 
