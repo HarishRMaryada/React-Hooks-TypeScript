@@ -12,6 +12,7 @@ import store from "./Store";
 //components
 // import PrivateRoute from "./libs/PrivateRoute";
 import Login from "./Component/Login";
+import Signup from './Component/Signup';
 
 const App: React.FC = () => {
   return (
@@ -21,7 +22,7 @@ const App: React.FC = () => {
         <BrowserRouter>
           <div>
             <Switch>
-              <Route exact={true} path={"/"} component={Login} />
+              <Route exact={true} path={"/"} component={Signup} />
               <Route exact={true} path={"/signup"} component={Login} />
               {/* <PrivateRoute path={"/"} component={Layout} /> */}
             </Switch>

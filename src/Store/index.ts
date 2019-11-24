@@ -22,3 +22,6 @@ sagaMiddleware.run(rootSaga)
 
 export default store
 export * from "./types"
+
+
+///https://redux.js.org/recipes/configuring-your-store
